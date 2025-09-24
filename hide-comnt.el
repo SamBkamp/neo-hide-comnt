@@ -51,7 +51,7 @@
         (forward-line 1)))))
 
 (global-set-key (kbd "C-x w") 'hide/hide-comment-on-line)
-(global-set-key (kbd "C-x r") 'process_marked-lines)q
+(global-set-key (kbd "C-x r") 'process-marked-lines)
 
 
 ;;;###autoload

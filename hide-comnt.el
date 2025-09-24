@@ -39,6 +39,19 @@
 
   )
 
+(defun process-marked-lines ()
+  "Process lines that are marked in the current buffer."
+  (interactive)
+  (let ((start (region-beginning))
+        (end (region-end)))
+    (save-excursion
+      (goto-char start)
+      (while (< (point) end)
+        (hide/hide-comment-on-line)
+        (forward-line 1)))))
+
+(global-set-key (kbd "C-x w") 'hide/hide-comment-on-line)
+(global-set-key (kbd "C-x r") 'process_marked-lines)q
 
 
 ;;;###autoload

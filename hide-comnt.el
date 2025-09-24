@@ -22,13 +22,17 @@
 ;;
 ;;; Code:
 
+(defun hide/return-mm-comment-key ()
+  "function to return the comment keycharacters based on the major mode"
+  "//"
+  )
 
 ;(put-text-property cbeg cend 'invisible t)
 ;;;###autoload
 (defun hide/hide-comment-on-line ()
   (interactive)
 
-  (let ((regex (string-match "//" (thing-at-point 'line t))))
+  (let ((regex (string-match (hide/return-mm-comment-key) (thing-at-point 'line t))))
     (if regex
 	(put-text-property (+ (line-beginning-position) regex) (line-end-position) 'invisible t)
       ))

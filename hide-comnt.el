@@ -24,7 +24,15 @@
 
 (defun hide/return-mm-comment-key ()
   "function to return the comment keycharacters based on the major mode"
-  "//"
+  (cond
+   ((derived-mode-p 'c-mode) "//")
+   ((derived-mode-p 'python-mode) "#")
+   ((derived-mode-p 'java-mode) "//")
+   ((derived-mode-p 'asm-mode) ";")
+   ((derived-mode-p 'nasm-mode) ";")
+   ((derived-mode-p 'emacs-lisp-mode) ";")
+   (t "//")
+   )
   )
 
 ;(put-text-property cbeg cend 'invisible t)
